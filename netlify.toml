@@ -1,12 +1,25 @@
 [build]
-  command = "npm install"
   functions = "netlify/functions"
   publish = "public"
 
-[dev]
-  command = "npm start"
+[functions]
+  node_bundler = "esbuild"
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/*"
+  to = "/.netlify/functions/main"
   status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[dev]
+  framework = "#custom"
+  command = "node netlify/functions/main.js"
+  port = 8888
+  publish = "public"
