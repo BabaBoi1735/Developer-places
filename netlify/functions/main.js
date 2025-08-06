@@ -1,4 +1,4 @@
-// netlify/functions/index.js
+// netlify/functions/main.js
 exports.handler = async (event, context) => {
     // CORS headers voor alle responses
     const headers = {
