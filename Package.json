@@ -2,11 +2,11 @@
   "name": "netlify-puzzle-tracker",
   "version": "1.0.0",
   "description": "Serverless function voor puzzle game tracking",
-  "main": "netlify/functions/index.js",
+  "main": "netlify/functions/main.js",
   "scripts": {
     "dev": "netlify dev",
     "build": "echo 'No build step required'",
-    "test": "node netlify/functions/index.js"
+    "test": "node netlify/functions/main.js"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"
